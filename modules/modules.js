@@ -24,17 +24,6 @@ module.exports = {
                     links: $('a').map((i, el) => $(el).attr('href')).get(),
                 };
 
-                console.log(data.url_data)
-
-                data.links.forEach(async url => {
-                    if (url.startsWith('/')) {
-                        let page = await axios.get(data.url_data.origin + url);
-                        if (page.status == 200) {
-                            require('../database/web_data').addIndex(new URL(data.url_data.origin + url)).then((res) => console.log('One indexed')).catch((err) => console.error(err));
-                        }
-                    }
-                })
-
                 return data; // return data object
             } else {
                 throw new Error('Url is not valid!'); // throw error if URL is not valid
