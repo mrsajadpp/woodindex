@@ -1,0 +1,17 @@
+{{>search}}
+<div class="container" id="searchresultsarea">
+    {{#if pages}}
+    {{#each pages}}
+    <a href="{{this.url}}" class="a">
+        <div class="searchresult">
+            <h2 id="resultTitle">{{this.title}}</h2>
+            <p id="resultDescription">{{this.description}}</p>
+        </div>
+    </a>
+    {{/each}}
+    {{else}}
+    <div class="notfound">
+        <span class="text">No results <span class="green-text">found</span>!</span>
+    </div>
+    {{/if}}
+</div>

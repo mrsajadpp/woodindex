@@ -1,0 +1,24 @@
+{{>search}}
+{{#if pages}}
+<section id="searchresultsarea">
+    <div class="container-fluid">
+        <div class="d-flex flex-row flex-wrap justify-content-center">
+            {{#each pages}}
+            {{#each this.images}}
+            <div class="d-flex flex-column">
+                <a href="{{../this.url}}">
+                    <img src="{{../this.url_data.origin}}{{this}}" class="img-fluid">
+                </a>
+            </div>
+            {{/each}}
+            {{/each}}
+        </div>
+    </div>
+</section>
+{{else}}
+<div class="container" id="searchresultsarea">
+    <div class="notfound">
+        <span class="text">No results <span class="green-text">found</span>!</span>
+    </div>
+</div>
+{{/if}}
